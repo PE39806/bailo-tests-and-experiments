@@ -1,0 +1,18 @@
+{
+    "[python]": {
+      "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "black-formatter.args": [
+        "--config=pyproject.toml"
+    ],
+    "pylint.args": [
+      "--rcfile=pyproject.toml"
+    ],
+    "flake8.args": [
+      "--toml-config=pyproject.toml"
+    ],
+    "isort.args": [
+      "--settings-path=pyproject.toml"
+    ],
+    "editor.formatOnSave": true,
+}
