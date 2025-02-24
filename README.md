@@ -7,6 +7,7 @@ This repo is intended for programmatic one-time experiments so files may not be 
 ## Experiments
 
 - `many_models_with_tags.py`: create lots of models with predefined tags, but randomly mutate the case of some of the tags. Used for testing case sensitive searches.
+- `scanners.py`: upload various files from the local machine to a model to test the performance of the AV scanners.
 
 ## Setup
 
@@ -31,6 +32,7 @@ pre-commit install
 ```
 
 Create and populate your dotenv file(s) e.g. `.local.env`. You can get your `ACCESS_KEY` and `SECRET_KEY` from the Authentication tab within Bailo's Settings.
+`URL` points to a Bailo instance you wish to connect to for running the scripts.
 
 ```console
 $ cat .local.env
