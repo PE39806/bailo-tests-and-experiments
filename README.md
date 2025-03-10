@@ -8,6 +8,7 @@ This repo is intended for programmatic one-time experiments so files may not be 
 
 - `many_models_with_tags.py`: create lots of models with predefined tags, but randomly mutate the case of some of the tags. Used for testing case sensitive searches.
 - `scanners.py`: upload various files from the local machine to a model to test the performance of the AV scanners.
+- `long_names.py`: create a model with a release with a file with very long names, and also a data card with a very long name. Used to test overflowing text.
 
 ## Setup
 

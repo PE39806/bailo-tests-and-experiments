@@ -20,3 +20,6 @@ env.bak/
 venv.bak/
 experiments-venv/
 .*.env
+
+# Custom blobs
+ThisIsAnOvertlyLongAndVeryVerbose*
