@@ -1,0 +1,6 @@
+[project]
+name = "bailo_openapi_linter"
+description = "Pylint custom checker to compare the Bailo Python client with Bailo's backend OpenAPI specification."
+version = "0.1.0"
+
+dependencies = ["pylint"]

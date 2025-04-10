@@ -55,7 +55,7 @@ class ScanPath:
             pass
 
         print(f"Creating new release {new_release_version}")
-        notes = f"Uploaded using bailo python client at {datetime.datetime.now():%Y-%m-%d %H:%M:%S%z}"
+        notes = f"Uploaded using the Bailo Python client at {datetime.datetime.now():%Y-%m-%d %H:%M:%S%z}"
         if extra_text:
             notes = f"{notes}{extra_text}"
         return self.model.create_release(

@@ -3,4 +3,4 @@ line-length = 120
 fast = true
 
 [tool.pylint.'FORMAT']
-max-line-length=120
+max-line-length = 120

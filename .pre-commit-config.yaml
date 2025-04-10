@@ -14,17 +14,17 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/PyCQA/isort
-    rev: 6.0.0
+    rev: 6.0.1
     hooks:
       - id: isort
-        args: ['-a', 'from __future__ import annotations', '-l', '120']
+        args: ["-a", "from __future__ import annotations", "-l", "120"]
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.19.1
     hooks:
       - id: pyupgrade
         name: pyupgrade 3.9
-        args: ['--py39-plus']
+        args: ["--py39-plus"]
 
   - repo: https://github.com/hadialqattan/pycln
     rev: v2.5.0
@@ -35,6 +35,7 @@ repos:
     rev: v2.4.1
     hooks:
       - id: codespell
+        args: ["-L", "astroid"]
 
   - repo: https://github.com/pre-commit/pygrep-hooks
     rev: v1.10.0
@@ -52,4 +53,4 @@ repos:
     rev: 25.1.0
     hooks:
       - id: black
-        args: ['--config', 'pyproject.toml']
+        args: ["--config", "pyproject.toml"]

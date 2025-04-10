@@ -6,9 +6,21 @@ This repo is intended for programmatic one-time experiments so files may not be 
 
 ## Experiments
 
+A collection of standalone python scripts to programmatically run and test Bailo functionality.
+
 - `many_models_with_tags.py`: create lots of models with predefined tags, but randomly mutate the case of some of the tags. Used for testing case sensitive searches.
 - `scanners.py`: upload various files from the local machine to a model to test the performance of the AV scanners.
 - `long_names.py`: create a model with a release with a file with very long names, and also a data card with a very long name. Used to test overflowing text.
+
+## Bailo OpenAPI Linter
+
+`openapi_checker.py`
+
+Unlike the each of the experiments, this is a specific integration test to compare the Bailo Python Client's endpoints to the Bailo OpenAPI Specification. It requires Bailo to be running locally at `http://localhost:8080` and will then throw errors for any endpoints found in `client.py` that do not exist in the OpenAPI specification, and warnings for any endpoints found in the OpenAPI specification but not `client.py`
+
+```bash
+pylint --load-plugins=bailo_openapi_linter.openapi_checker --disable=all --enable=endpoint-not-covered,endpoint-unknown --jobs=1 <path/to/bailo/lib/python/src/bailo/core/client.py>
+```
 
 ## Setup
 
@@ -42,7 +54,7 @@ SECRET_KEY=BBB_ABCDEF123456
 URL=http://localhost:8080
 ```
 
-## Usage
+## Development
 
 Utilise [BailoBoilerplateClient](./boilerplate_client.py) to quickly connect to a running Bailo instance in Python.
 
