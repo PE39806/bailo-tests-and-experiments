@@ -1,4 +1,5 @@
 """Upload various files from the local machine to a model to test the performance of the AV scanners.
+Uses env var `SCANNERS_MODEL_ID` to save and load the same model for testing.
 
 This script does *not* download any files for you - they must be supplied yourself. Add these downloaded files to the `PATHS` variable defined later in the script.
 """
