@@ -11,7 +11,7 @@ from os import getenv
 from random import randbytes
 
 from bailo import Model
-from bailo.core.exceptions import ResponseException
+from bailo.core.exceptions import BailoException
 from boilerplate_client import BailoBoilerplateClient
 from dotenv import set_key
 
@@ -68,7 +68,7 @@ if __name__ == "__main__":
     try:
         # try to load from an existing model
         Model.from_id(client, model_id)
-    except ResponseException:
+    except BailoException:
         # create a new model
         test_model = Model.create(
             client, "Concurrent-uploads-test", "A simple model for testing uploading many files simultaneously."

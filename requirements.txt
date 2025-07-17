@@ -1,3 +1,4 @@
 -e pylint_custom
+lorem-text
 pre-commit
 python-dotenv

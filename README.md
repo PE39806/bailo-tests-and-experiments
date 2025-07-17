@@ -12,6 +12,7 @@ A collection of standalone python scripts to programmatically run and test Bailo
 - `scanners.py`: upload various files from the local machine to a model to test the performance of the AV scanners.
 - `long_names.py`: create a model with a release with a file with very long names, and also a data card with a very long name. Used to test overflowing text.
 - `concurrent_file_uploads.py`: upload multiple files simultaneously. Used to stress test the backend and AV scanners.
+- `model_card_revisions.py`: set random values for each part of a model card. Used to stress test model mirroring with many revisions.
 
 ## Bailo OpenAPI Linter
 
