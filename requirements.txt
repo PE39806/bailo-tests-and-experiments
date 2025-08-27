@@ -1,4 +1,5 @@
 -e pylint_custom
+-e "git+https://github.com/gchq/Bailo.git#egg=Bailo&subdirectory=lib/python"
 lorem-text
 pre-commit
 python-dotenv

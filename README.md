@@ -13,6 +13,8 @@ A collection of standalone python scripts to programmatically run and test Bailo
 - `long_names.py`: create a model with a release with a file with very long names, and also a data card with a very long name. Used to test overflowing text.
 - `concurrent_file_uploads.py`: upload multiple files simultaneously. Used to stress test the backend and AV scanners.
 - `model_card_revisions.py`: set random values for each part of a model card. Used to stress test model mirroring with many revisions.
+- `many_releases_with_files.py`: create releases with files where the file sizes exponentially increase. Used to stress test model mirroring with releases containing files.
+- `several_releases_with_files.py`: create releases with files where the total file size per release sums up to a known figure. Overall this is similar to `many_releases_with_files.py`.
 
 ## Bailo OpenAPI Linter
 
@@ -37,7 +39,6 @@ Install required packages:
 
 ```bash
 pip install -r requirements.txt
-pip install -e </path/to/Bailo/lib/python>
 ```
 
 Install pre-commit:
