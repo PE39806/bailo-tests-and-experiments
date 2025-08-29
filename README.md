@@ -69,3 +69,22 @@ from boilerplate_client import BailoBoilerplateClient
 boilerplate_client = BailoBoilerplateClient()
 client = boilerplate_client.client
 ```
+
+`BailoBoilerplateClient` also includes some helpful util methods such as `get_or_create_model` and `get_next_model_version`.
+
+[LazyStream](./boilerplate_client.py) is another useful utility that can be used in place of `BytesIO` to have a blob of arbitrary size that is not fully loaded into memory, allowing for stress testing massive files. Example usage:
+
+```python
+from boilerplate_client import BailoBoilerplateClient, LazyStream
+
+boilerplate_client = BailoBoilerplateClient()
+client = boilerplate_client.client
+model = boilerplate_client.get_or_create_model("BIG_FILE_UPLOAD_TEST")
+file_size = 10 ** 12  # 1 TB (Terabyte)
+
+client.simple_upload(
+    model.model_id,
+    f"blob-{file_size:_}.blob",
+    LazyStream(total_size=file_size),
+)
+```
