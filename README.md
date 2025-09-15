@@ -15,6 +15,7 @@ A collection of standalone python scripts to programmatically run and test Bailo
 - `model_card_revisions.py`: set random values for each part of a model card. Used to stress test model mirroring with many revisions.
 - `many_releases_with_files.py`: create releases with files where the file sizes exponentially increase. Used to stress test model mirroring with releases containing files.
 - `several_releases_with_files.py`: create releases with files where the total file size per release sums up to a known figure. Overall this is similar to `many_releases_with_files.py`.
+- `many_releases_with_existing_images.py`: create releases from manually uploaded images where each successive release has an increasing number of images (based off triangular numbers). Used to stress test model mirroring with releases containing images.
 
 ## Bailo OpenAPI Linter
 
