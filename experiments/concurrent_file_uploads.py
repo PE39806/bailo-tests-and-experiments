@@ -5,21 +5,18 @@ Uses env var `CONCURRENCY_MODEL_ID` to save and load the same model for testing.
 from __future__ import annotations
 
 from concurrent.futures import ProcessPoolExecutor
-from io import BytesIO
 from itertools import repeat
 from os import getenv
-from random import randbytes
 
 from bailo import Model
 from bailo.core.exceptions import BailoException
-from boilerplate_client import BailoBoilerplateClient
+from boilerplate_client import BailoBoilerplateClient, LazyStream
 from dotenv import set_key
 
 
 def upload_file(
     process_count: int,
     file_size: int,
-    random_bytes: bool = False,
     model_id_env_var: str = "CONCURRENCY_MODEL_ID",
     dotenv_file: str = ".local.env",
 ) -> int:
@@ -39,15 +36,10 @@ def upload_file(
     model_id = getenv(model_id_env_var)
     # pylint: enable=redefined-outer-name
 
-    if random_bytes:
-        blob = BytesIO(randbytes(file_size))
-    else:
-        blob = BytesIO(b"\x00" * file_size)
-
     client.simple_upload(
         model_id,
         "test" + str(process_count),
-        blob,
+        LazyStream(total_size=file_size),
     )
     print(f"Finished {process_count}")
     return process_count
@@ -84,7 +76,6 @@ if __name__ == "__main__":
             upload_file,
             range(UPLOAD_COUNT),
             repeat(FILE_SIZE, UPLOAD_COUNT),
-            repeat(False, UPLOAD_COUNT),
             repeat(MODEL_ID_ENV_VAR, UPLOAD_COUNT),
             repeat(DOTENV_FILE, UPLOAD_COUNT),
         ):
