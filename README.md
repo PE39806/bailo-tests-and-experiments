@@ -17,6 +17,7 @@ A collection of standalone python scripts to programmatically run and test Bailo
 - `several_releases_with_files.py`: create releases with files where the total file size per release sums up to a known figure. Overall this is similar to `many_releases_with_files.py`.
 - `many_releases_with_existing_images.py`: create releases from manually uploaded images where each successive release has an increasing number of images (based off triangular numbers). Used to stress test model mirroring with releases containing images.
 - `purge_files_without_release.py`: simple cleanup to delete any files attached to a model that are not in any Releases.
+- `clone_releases.py`: clone the skeleton releases in one model to another. This does not directly copy the File and Container contents but creates named copies with empty contents of the appropriate size. File size is exact but Container size is only approximate. Useful for testing model mirroring with artefacts on a "fresh" copy of all artefacts.
 
 ## Bailo OpenAPI Linter
 

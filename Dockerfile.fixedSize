@@ -1,3 +1,4 @@
+# Used to generate docker Images of an (approximate) size
 FROM alpine:latest AS builder
 
 RUN apk add --no-cache coreutils
