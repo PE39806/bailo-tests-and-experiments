@@ -1,0 +1,20 @@
+FROM alpine:latest AS builder
+
+RUN apk add --no-cache coreutils
+
+# Build-time argument for target size in MB
+ARG IMG_SIZE_MB=100
+ARG CACHEBUST=1
+
+# Create a dummy file from /dev/urandom
+# If CACHEBUST changes (e.g. `--build-arg CACHEBUST=$(date +%s)`) then force recreate the layer which will always have a different output.
+# This forces the overall image to have a new hash due to metadata differing.
+RUN echo "$CACHEBUST" && \
+    dd if=/dev/urandom of=/padding.bin bs=1M count=${IMG_SIZE_MB}
+
+FROM scratch
+
+# Bring in only the file from the builder stage
+COPY --from=builder /padding.bin /padding.bin
+
+CMD ["/bin/sh"]

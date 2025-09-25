@@ -24,4 +24,5 @@ experiments-venv/
 *.egg-info
 
 # Custom blobs
+tmp/
 ThisIsAnOvertlyLongAndVeryVerbose*
